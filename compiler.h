@@ -3,6 +3,22 @@
 
 #include <stdio.h>
 
+struct token
+{
+    int type;
+    int flags;
+
+    union
+    {
+        char cval;
+        const char* sval;
+        unsigned int inum;
+        unsigned long lnum;
+        unsigned long long llnum;
+        void* any;
+    };
+};
+
 enum
 {
     COMPILER_FILE_COMPILED_OK,
@@ -15,7 +31,7 @@ struct compile_process
     struct compile_process_input_file
     {
         FILE* fp;
-        cosnt char* abs_path;
+        const char* abs_path;
     } cfile;
 
     FILE* ofile;    //输出文件
