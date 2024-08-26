@@ -7,11 +7,11 @@
 #define BUFFER_REALLOC_AMOUNT 2000
 struct buffer
 {
-    char* data;
-    // Read index
-    int rindex;
-    int len;
-    int msize;
+	char* data;
+	// Read index
+	int rindex;
+	int len;
+	int msize;
 };
 
 struct buffer* buffer_create();

@@ -1,5 +1,5 @@
 #OBJECTS表示编译过程中生成的所有目标文件，通常是.o文件
-OBJECTS= ./build/compiler.o ./build/cprocess.o ./build/helpers/buffer.o ./build/helpers/vector.o
+OBJECTS= ./build/compiler.o ./build/cprocess.o ./build/lexer.o ./build/lex_process.o ./build/helpers/buffer.o ./build/helpers/vector.o
 #指定头文件目录为根目录，INCLUDES表示头文件路径
 INCLUDES= -I./	#-I指定头文件目录，./表示当前目录
 
@@ -14,6 +14,12 @@ all: ${OBJECTS}	#运行make时，Makefile会检查每个目标文件的修改时
 
 ./build/cprocess.o: ./cprocess.c
 	gcc ./cprocess.c ${INCLUDES} -o ./build/cprocess.o -g -c
+
+./build/lexer.o: ./lexer.c
+	gcc ./lexer.c ${INCLUDES} -o ./build/lexer.o -g -c
+
+./build/lex_process.o: ./lex_process.c
+	gcc ./lex_process.c ${INCLUDES} -o ./build/lex_process.o -g -c
 
 ./build/helpers/buffer.o: ./helpers/buffer.c
 	gcc ./helpers/buffer.c ${INCLUDES} -o ./build/helpers/buffer.o -g -c
